@@ -1,12 +1,10 @@
 import express from 'express';
 
-const app = express();
-app.use(express.json()); // json 형태로 데이터를 주고 받을 수 있게 해줌
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
 
-// import express from 'express';                         // export default 가져오기
-// import abc from 'express';                             // export default 이름 바꿔서 가져오기
-// import defaultFn, {abc, def} from 'express';           // export default 와 export 같이 가져오기
-// import defaultFn, {abc as change, def} from 'express'; // export default 와 export 이름 바꿔서 가져오기 as를 사용하면 이름을 바꿀 수 있음 ex) abc >> change
+const app = express();
+app.use(express.json());
 
 app.get('/', (req, res) => {
     const result = [
