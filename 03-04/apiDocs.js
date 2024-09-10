@@ -11,9 +11,6 @@ const app = express();
 app.use(express.json());
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options)));
 
-
-
-
 app.get('/', (req, res) => {
     const result = [
         {number : 1, writer: '김', title:'제목1', content:'내용1'},

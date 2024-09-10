@@ -5,7 +5,6 @@ export const options = {
         info: {
             title: 'OD - API',
             version: '1.0.0',
-            description: 'A simple',
         },
     },
     apis: ['./swagger/*.swagger.js'],
