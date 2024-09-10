@@ -5,7 +5,8 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "dev:0304" : "nodemon 03-04/index.js"
   },
   "dependencies": {
     "express": "^4.19.2",

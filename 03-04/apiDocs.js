@@ -2,9 +2,17 @@ import express from 'express';
 
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
+import {options} from './swagger/config.js';
+
+
+
 
 const app = express();
 app.use(express.json());
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options)));
+
+
+
 
 app.get('/', (req, res) => {
     const result = [
