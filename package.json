@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon index.js",
-    "dev:0304" : "nodemon 03-04/index.js"
+    "dev:0304" : "nodemon 03-04/apiDocs.js"
   },
   "dependencies": {
     "express": "^4.19.2",

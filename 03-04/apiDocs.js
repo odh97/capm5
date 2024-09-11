@@ -1,15 +1,17 @@
 import express from 'express';
 
 import swaggerUi from 'swagger-ui-express';
-import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerJsDoc from 'swagger-jsdoc';
 import {options} from './swagger/config.js';
-
 
 
 
 const app = express();
 app.use(express.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsdoc(options)));
+// api docs 설정
+// api-docs router 경로로 접속하면 API 문서를 볼 수 있게 설정
+// config 파일에서 설정한 options를 사용
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc(options)));
 
 app.get('/', (req, res) => {
     const result = [
