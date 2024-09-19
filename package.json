@@ -8,7 +8,7 @@
     "dev": "nodemon index.js",
     "dev:0304": "nodemon 03-04/apiDocs.js",
     "dev:0305": "nodemon 03-05/backend/apiDocs.js",
-    "dev:0306": "nodemon 03-04/index.js"
+    "dev:0306": "nodemon 03-06/index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
