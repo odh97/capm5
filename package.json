@@ -7,12 +7,15 @@
   "scripts": {
     "dev": "nodemon index.js",
     "dev:0304": "nodemon 03-04/apiDocs.js",
-    "dev:0305": "nodemon 03-05/backend/apiDocs.js"
+    "dev:0305": "nodemon 03-05/backend/apiDocs.js",
+    "dev:0306": "nodemon 03-04/index.js"
   },
   "dependencies": {
+    "@apollo/server": "^4.11.0",
     "axios": "^1.7.7",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "graphql": "^16.9.0",
     "nodemon": "^3.1.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
