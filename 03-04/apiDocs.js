@@ -32,4 +32,4 @@ app.post('/board', (req, res) => {
     res.send('board post success');
 });
 
-app.listen(5000);
+app.listen(5500);
