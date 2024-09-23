@@ -1,14 +1,14 @@
-"use client";
-import React, { useEffect } from "react";
-import * as THREE from "three";
+'use client';
+import React, { useEffect } from 'react';
+import * as THREE from 'three';
 
 export function ThreeBackground() {
   useEffect(() => {
-    if (!!document.getElementById("particles")) {
+    if (!!document.getElementById('particles')) {
       return;
     }
 
-    document.querySelector("body")?.classList.add("overflow-hidden");
+    document.querySelector('body')?.classList.add('overflow-hidden');
 
     let SEPARATION = 100;
     let AMOUNTX = 50;
@@ -30,19 +30,19 @@ export function ThreeBackground() {
 
     function init() {
       // div-particles dom 생성
-      container = document.createElement("div");
-      container.id = "particles";
-      container.className = "particles absolute top-0 left-0 w-full h-full";
+      container = document.createElement('div');
+      container.id = 'particles';
+      container.className = 'particles absolute top-0 left-0 w-full h-full';
 
       // div-particles dom을 homepage-hero에 추가
-      document.getElementById("homepage-hero")?.appendChild(container);
+      document.getElementById('homepage-hero')?.appendChild(container);
 
       // 카메라 생성 fov: 시야각, aspect: 비율, near: 가까운 면, far: 먼 면
       camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
         100,
-        10000,
+        10000
       );
 
       // 카메라 위치 설정
@@ -52,16 +52,16 @@ export function ThreeBackground() {
       scene = new THREE.Scene();
 
       // Create a canvas texture
-      const canvas = document.createElement("canvas");
+      const canvas = document.createElement('canvas');
       canvas.width = 64;
       canvas.height = 64;
-      const context = canvas.getContext("2d");
+      const context = canvas.getContext('2d');
 
       if (context) {
         const PI2 = Math.PI * 2;
         context.beginPath();
         context.arc(32, 32, 16, 0, PI2, true);
-        context.fillStyle = "#4EBE96";
+        context.fillStyle = '#4EBE96';
         context.fill();
       }
 
@@ -83,10 +83,10 @@ export function ThreeBackground() {
       renderer.setSize(window.innerWidth, window.innerHeight);
       container.appendChild(renderer.domElement);
 
-      document.addEventListener("mousemove", onDocumentMouseMove, false);
-      document.addEventListener("touchstart", onDocumentTouchStart, false);
-      document.addEventListener("touchmove", onDocumentTouchMove, false);
-      window.addEventListener("resize", onWindowResize, false);
+      document.addEventListener('mousemove', onDocumentMouseMove, false);
+      document.addEventListener('touchstart', onDocumentTouchStart, false);
+      document.addEventListener('touchmove', onDocumentTouchMove, false);
+      window.addEventListener('resize', onWindowResize, false);
     }
 
     function onDocumentMouseMove(event: MouseEvent) {
@@ -147,17 +147,17 @@ export function ThreeBackground() {
     }
 
     return () => {
-      document.querySelector("body")?.classList.remove("overflow-hidden");
-      document.removeEventListener("mousemove", onDocumentMouseMove);
-      document.removeEventListener("touchstart", onDocumentTouchStart);
-      document.removeEventListener("touchmove", onDocumentTouchMove);
-      window.removeEventListener("resize", onWindowResize);
+      document.querySelector('body')?.classList.remove('overflow-hidden');
+      document.removeEventListener('mousemove', onDocumentMouseMove);
+      document.removeEventListener('touchstart', onDocumentTouchStart);
+      document.removeEventListener('touchmove', onDocumentTouchMove);
+      window.removeEventListener('resize', onWindowResize);
     };
   }, []);
 
   return (
     <div
-      id={"homepage-hero"}
+      id={'homepage-hero'}
       className="absolute left-0 top-[-125px] h-[calc(100vh-200px)] w-full"
     />
   );

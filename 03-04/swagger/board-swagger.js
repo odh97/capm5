@@ -31,7 +31,6 @@
  *                     example: 오늘 하루도 파이팅 하세요!
  */
 
-
 /**
  * @swagger
  * /board:
