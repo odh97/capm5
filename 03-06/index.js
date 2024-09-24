@@ -3,16 +3,35 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 
 // 스키마 정의
 const typeDefs = `#graphql
-  type Query {
-    hello: String
+  type MyResult {
+      number: Int
+      writer: String
+      title: String
+      content: String
   }
+
+  type Query {
+    # fetchBoard는 MyResult 타입의 배열을 반환합니다.
+    # typescript와 다르게 배열은 [MyResult]로 표현합니다.
+    fetchBoard: [MyResult]
+  }
+
+ type Mutation {
+    createBoard(title: String, content: String): String
+ }
 `;
 
 // 스키마에 대한 데이터를 반환하는 함수의 맵입니다.
 const resolvers = {
   Query: {
     fetchBoard: (parent, args, context, info) => {
-      return '게시물 조회 성공';
+      const result = [
+        { number: 1, writer: '김', title: '제목1', content: '내용1' },
+        { number: 2, writer: '이', title: '제목2', content: '내용2' },
+        { number: 3, writer: '박', title: '제목3', content: '내용3' },
+      ];
+
+      return result;
     },
   },
 
