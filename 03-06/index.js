@@ -3,6 +3,12 @@ import { startStandaloneServer } from '@apollo/server/standalone';
 
 // 스키마 정의
 const typeDefs = `#graphql
+  input CreateBoardInput {
+      writer: String
+      title: String
+      content: String
+  } 
+
   type MyResult {
       number: Int
       writer: String
@@ -16,15 +22,20 @@ const typeDefs = `#graphql
     fetchBoard: [MyResult]
   }
 
- type Mutation {
-    createBoard(title: String, content: String): String
- }
+  type Mutation {
+    # createBoard(writer: String, title: String, content: String): String
+    createBoard(createBoardInput: CreateBoardInput): String
+  }
+
 `;
 
 // 스키마에 대한 데이터를 반환하는 함수의 맵입니다.
 const resolvers = {
   Query: {
     fetchBoard: (parent, args, context, info) => {
+      console.log('parent >>>>>', parent); // parent는 부모 객체를 나타냅니다.
+      console.log('request >>>>>', args); // args는 요청 매개변수를 나타냅니다.
+
       const result = [
         { number: 1, writer: '김', title: '제목1', content: '내용1' },
         { number: 2, writer: '이', title: '제목2', content: '내용2' },
@@ -36,10 +47,8 @@ const resolvers = {
   },
 
   Mutation: {
-    createBoard: (parent, args, context, info) => {
+    createBoard: (_, args) => {
       console.log('============ board post ============');
-      console.log('parent >>>>>', parent); // parent는 부모 객체를 나타냅니다.
-      console.log('request >>>>>', args); // args는 요청 매개변수를 나타냅니다.
 
       return '게시물 등록 성공';
     },
