@@ -1,4 +1,5 @@
 import express from 'express';
+import coolsms from 'coolsms-node-sdk';
 
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
@@ -38,6 +39,20 @@ app.post('/phone', (req, res) => {
     { number: 2, writer: '이', title: '제목2', content: '내용2' },
     { number: 3, writer: '박', title: '제목3', content: '내용3' },
   ];
+
+  // apiKey, apiSecret 설정
+  const mysms = coolsms.default;
+  const messageService = mysms('ENTER_YOUR_API_KEY', 'ENTER_YOUR_API_SECRET');
+
+  // 1건 이상의 메시지를 발송할 때는 sendMany, 단일 건 메시지 발송은 sendOne을 이용해야 합니다.
+  messageService
+    .sendOne({
+      to: '01011112222',
+      from: '01011112222',
+      text: '한글 45자, 영자 90자 이하 입력되면 자동으로 SMS타입의 메시지가 발송됩니다.',
+    })
+    .then((res) => console.log(res))
+    .catch((err) => console.error(err));
 
   res.send(result);
 });

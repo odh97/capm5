@@ -8,11 +8,13 @@
     "dev": "nodemon index.js",
     "dev:0304": "nodemon 03-04/apiDocs.js",
     "dev:0305": "nodemon 03-05/backend/apiDocs.js",
-    "dev:0306": "nodemon 03-06/index.js"
+    "dev:0306": "nodemon 03-06/index.js",
+    "dev:0309": "nodemon 03-09/backend/message.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
     "axios": "^1.7.7",
+    "coolsms-node-sdk": "^2.1.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "graphql": "^16.9.0",
