@@ -1,20 +1,24 @@
-class Date {
-  qqq = 3;
+class Monster {
+  power = 10;
 
-  constructor() {
-    this.date = new window.Date();
+  constructor(qqq) {
+    this.power = qqq;
   }
 
-  getFullYear() {
-    return this.date.getFullYear();
-  }
+  attack = () => {
+    console.log('공격하자!!');
+    console.log('내 공격력은 ' + this.power + '야!!!');
+  };
 
-  getMonth() {
-    return this.date.getMonth();
-  }
+  run = () => {
+    console.log('도망가자!!');
+  };
 }
 
-const date = new Date();
+const myMonster1 = new Monster(20);
+myMonster1.attack();
+myMonster1.run(); //날아다니자!!
 
-console.log(date.getFullYear());
-console.log(date.getMonth() + 1);
+const myMonster2 = new Monster(50);
+myMonster2.attack();
+myMonster2.run(); //달려가자!!

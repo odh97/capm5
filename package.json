@@ -11,7 +11,8 @@
     "dev:0305": "nodemon 03/03-05/backend/apiDocs.js",
     "dev:0306": "nodemon 03/03-06/graphql.js",
     "dev:0309": "nodemon 03/03-09/backend/message.js",
-    "dev:0310": "nodemon 03/03-10/backend/mail.js"
+    "dev:0310": "nodemon 03/03-10/backend/mail.js",
+    "dev:0602": "node 06/06-02-class-extends/index.js"
   },
   "dependencies": {
     "@apollo/server": "^4.11.0",
