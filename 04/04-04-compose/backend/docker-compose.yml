@@ -1,0 +1,23 @@
+version: '3.7'
+
+# 컴퓨터들
+services:
+    # 백엔드 서버
+    backend:
+        build: # 이미지를 만들기 위한 설정
+            context: .             # Dockerfile이 있는 경로
+            dockerfile: Dockerfile # Dockerfile 이름
+        ports: # 포트 포워딩
+            - "5000:5000"
+
+
+    # 데이터베이스 서버
+    mongodb:
+        build:
+            context: .
+            dockerfile: mongo.Dockerfile
+        ports:
+            - "27018:27017"
+
+
+
