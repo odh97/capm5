@@ -1,0 +1,9 @@
+// 비즈니스 로직
+export class CashService {
+  checkValue = () => {
+    // 1. 가진돈 검증하는 코드 ()
+    // ...
+    // ...
+    // ...
+  };
+}
